@@ -4,9 +4,6 @@
     <list default="true" id="91f44756-e57b-4f47-9585-7ad13286cee9" name="Default" comment="">
       <change type="DELETED" beforePath="G:\Q1\workspace\DataHolder\travis.yml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.travis.yml" afterPath="$PROJECT_DIR$/.travis.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DataHolder.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -63,8 +60,8 @@
       <file leaf-file-name=".travis.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.31413043">
-              <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.16630435">
+              <caret line="9" column="62" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="62" />
               <folding />
             </state>
           </provider>
@@ -517,12 +514,12 @@
       <created>1442339374390</created>
       <option name="number" value="Default" />
       <updated>1442339374390</updated>
-      <workItem from="1442339376935" duration="3282000" />
+      <workItem from="1442339376935" duration="3512000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3282000" />
+    <option name="totallyTimeSpent" value="3512000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="953" y="0" width="974" height="1057" extended-state="0" />
@@ -612,8 +609,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31413043">
-          <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.16630435">
+          <caret line="9" column="62" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="62" />
           <folding />
         </state>
       </provider>
