@@ -12,8 +12,6 @@ before_deploy:
 deploy:
   skip_cleanup: true
   provider: releases
-  api_key:
-    secure: [redacted]
   file:
     - "target/DataHolder.jar"
   on:
