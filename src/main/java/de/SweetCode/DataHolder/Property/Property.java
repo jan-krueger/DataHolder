@@ -7,8 +7,16 @@ import java.util.Optional;
  */
 public interface Property<K, V> {
 
+    /**
+     * The key of the property.
+     * @return
+     */
     K getKey();
 
+    /**
+     * Returns a optional with the value.
+     * @return
+     */
     Optional<V> get();
 
 }
