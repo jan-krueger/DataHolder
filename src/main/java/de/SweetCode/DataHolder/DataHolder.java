@@ -29,6 +29,16 @@ public class DataHolder {
     }
 
     /**
+     * Returns all stored Property types.
+     * @return
+     */
+    public Collection<Class<?>> getPropertieTypes() {
+
+        return this.datas.keySet();
+
+    }
+
+    /**
      * Returns the stored Property in a Optional class.
      * @param propertyClass The property class which implements the {@see de.SweetCode.DataHolder.Property.Property} interface.
      * @param <T>
