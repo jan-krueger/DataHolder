@@ -7,6 +7,11 @@ import de.SweetCode.DataHolder.Property.properties.*;
 import junit.framework.TestCase;
 import org.junit.Assert;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class DataManagerTest extends TestCase {
 
     public DataManagerTest() {
@@ -155,5 +160,30 @@ public class DataManagerTest extends TestCase {
 
     }
 
+    public void testMapProperty() {
+
+        DataHolder dataHolder = new DataHolder();
+        dataHolder.store(new MapProperty<String>("Map", new HashMap()));
+
+        Assert.assertEquals(
+                "Default Property (Map) didn't store correctly.",
+                true,
+                dataHolder.getProperty(MapProperty.class).get().get().get().getClass().isAssignableFrom(HashMap.class)
+        );
+
+    }
+
+    public void testListProperty() {
+
+        DataHolder dataHolder = new DataHolder();
+        dataHolder.store(new ListProperty<String>("List", new ArrayList()));
+
+        Assert.assertEquals(
+                "Default Property (List) didn't store correctly.",
+                true,
+                dataHolder.getProperty(ListProperty.class).get().get().get().getClass().isAssignableFrom(ArrayList.class)
+        );
+
+    }
 
 }
