@@ -30,5 +30,4 @@ public class BooleanProperty<K> implements Property<K, Boolean> {
     public Optional<Boolean> get() {
         return this.value;
     }
-
 }
