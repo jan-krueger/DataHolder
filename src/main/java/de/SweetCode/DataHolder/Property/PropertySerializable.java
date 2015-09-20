@@ -5,8 +5,10 @@ package de.SweetCode.DataHolder.Property;
  */
 public interface PropertySerializable<T> {
 
-    String serialize();
-
-    T unserialize(String data);
+    /**
+     * The serialized data.
+     * @return
+     */
+    T serialize();
 
 }

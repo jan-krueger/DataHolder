@@ -3,14 +3,12 @@
  */
 
 import de.SweetCode.DataHolder.DataHolder;
+import de.SweetCode.DataHolder.Property.Property;
 import de.SweetCode.DataHolder.Property.properties.*;
 import junit.framework.TestCase;
 import org.junit.Assert;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class DataManagerTest extends TestCase {
 
