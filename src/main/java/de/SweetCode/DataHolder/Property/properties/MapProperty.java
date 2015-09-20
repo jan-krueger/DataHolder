@@ -32,4 +32,17 @@ public class MapProperty<K> implements Property<K, Map> {
         return this.value;
     }
 
+    @Override
+    public Property<K, Map> update(Object value) {
+
+        if(!(value instanceof Map)) {
+            throw new IllegalArgumentException("The value must be a Map.");
+        }
+
+        this.value = Optional.of((Map) value);
+
+        return this;
+
+    }
+
 }

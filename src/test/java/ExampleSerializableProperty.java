@@ -1,6 +1,7 @@
 import de.SweetCode.DataHolder.Property.Property;
 import de.SweetCode.DataHolder.Property.PropertySerializable;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -26,6 +27,19 @@ public class ExampleSerializableProperty<S, I> implements Property<String, Integ
     @Override
     public Optional<Integer> get() {
         return this.value;
+    }
+
+    @Override
+    public Property<String, Integer> update(Object value) {
+
+        if(!(value instanceof Integer)) {
+            throw new IllegalArgumentException("The value must be a Integer.");
+        }
+
+        this.value = Optional.of((Integer) value);
+
+        return this;
+
     }
 
     /**

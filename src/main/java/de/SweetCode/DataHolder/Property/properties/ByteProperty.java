@@ -31,4 +31,17 @@ public class ByteProperty<K> implements Property<K, Byte> {
         return this.value;
     }
 
+    @Override
+    public Property<K, Byte> update(Object value) {
+
+        if(!(value instanceof Byte)) {
+            throw new IllegalArgumentException("The value must be a Byte.");
+        }
+
+        this.value = Optional.of((Byte) value);
+
+        return this;
+
+    }
+
 }

@@ -36,7 +36,7 @@ public class DataManagerTest extends TestCase {
         Assert.assertEquals(
                 "Couldn't store the Property.",
                 true,
-                dataHolder.getProperty(ExampleProperty.class).get().get().isPresent()
+                dataHolder.getProperty(ExampleProperty.class, "ExampleProperty").get().isPresent()
         );
 
     }
@@ -49,7 +49,7 @@ public class DataManagerTest extends TestCase {
         Assert.assertEquals(
                 "Default Property (Boolean) didn't store correctly.",
                 true,
-                dataHolder.getProperty(BooleanProperty.class).get().get().get().getClass().isAssignableFrom(Boolean.class)
+                dataHolder.getProperty(BooleanProperty.class, "Boolean").get().get().getClass().isAssignableFrom(Boolean.class)
         );
 
     }
@@ -62,7 +62,7 @@ public class DataManagerTest extends TestCase {
         Assert.assertEquals(
                 "Default Property (Byte) didn't store correctly.",
                 true,
-                dataHolder.getProperty(ByteProperty.class).get().get().get().getClass().isAssignableFrom(Byte.class)
+                dataHolder.getProperty(ByteProperty.class, "Byte").get().get().getClass().isAssignableFrom(Byte.class)
         );
 
     }
@@ -75,7 +75,7 @@ public class DataManagerTest extends TestCase {
         Assert.assertEquals(
                 "Default Property (Char) didn't store correctly.",
                 true,
-                dataHolder.getProperty(CharProperty.class).get().get().get().getClass().isAssignableFrom(Character.class)
+                dataHolder.getProperty(CharProperty.class, "Char").get().get().getClass().isAssignableFrom(Character.class)
         );
 
     }
@@ -88,7 +88,7 @@ public class DataManagerTest extends TestCase {
         Assert.assertEquals(
                 "Default Property (Double) didn't store correctly.",
                 true,
-                dataHolder.getProperty(DoubleProperty.class).get().get().get().getClass().isAssignableFrom(Double.class)
+                dataHolder.getProperty(DoubleProperty.class, "Double").get().get().getClass().isAssignableFrom(Double.class)
         );
 
     }
@@ -101,7 +101,7 @@ public class DataManagerTest extends TestCase {
         Assert.assertEquals(
                 "Default Property (Float) didn't store correctly.",
                 true,
-                dataHolder.getProperty(FloatProperty.class).get().get().get().getClass().isAssignableFrom(Float.class)
+                dataHolder.getProperty(FloatProperty.class, "Float").get().get().getClass().isAssignableFrom(Float.class)
         );
 
     }
@@ -114,7 +114,7 @@ public class DataManagerTest extends TestCase {
         Assert.assertEquals(
                 "Default Property (Integer) didn't store correctly.",
                 true,
-                dataHolder.getProperty(IntegerProperty.class).get().get().get().getClass().isAssignableFrom(Integer.class)
+                dataHolder.getProperty(IntegerProperty.class, "Integer").get().get().getClass().isAssignableFrom(Integer.class)
         );
 
     }
@@ -127,7 +127,7 @@ public class DataManagerTest extends TestCase {
         Assert.assertEquals(
                 "Default Property (Long) didn't store correctly.",
                 true,
-                dataHolder.getProperty(LongProperty.class).get().get().get().getClass().isAssignableFrom(Long.class)
+                dataHolder.getProperty(LongProperty.class, "Long").get().get().getClass().isAssignableFrom(Long.class)
         );
 
     }
@@ -140,7 +140,7 @@ public class DataManagerTest extends TestCase {
         Assert.assertEquals(
                 "Default Property (Short) didn't store correctly.",
                 true,
-                dataHolder.getProperty(ShortProperty.class).get().get().get().getClass().isAssignableFrom(Short.class)
+                dataHolder.getProperty(ShortProperty.class, "Short").get().get().getClass().isAssignableFrom(Short.class)
         );
 
     }
@@ -153,7 +153,7 @@ public class DataManagerTest extends TestCase {
         Assert.assertEquals(
                 "Default Property (String) didn't store correctly.",
                 true,
-                dataHolder.getProperty(StringProperty.class).get().get().get().getClass().isAssignableFrom(String.class)
+                dataHolder.getProperty(StringProperty.class, "String").get().get().getClass().isAssignableFrom(String.class)
         );
 
     }
@@ -166,7 +166,7 @@ public class DataManagerTest extends TestCase {
         Assert.assertEquals(
                 "Default Property (Map) didn't store correctly.",
                 true,
-                dataHolder.getProperty(MapProperty.class).get().get().get().getClass().isAssignableFrom(HashMap.class)
+                dataHolder.getProperty(MapProperty.class, "Map").get().get().getClass().isAssignableFrom(HashMap.class)
         );
 
     }
@@ -179,9 +179,23 @@ public class DataManagerTest extends TestCase {
         Assert.assertEquals(
                 "Default Property (List) didn't store correctly.",
                 true,
-                dataHolder.getProperty(ListProperty.class).get().get().get().getClass().isAssignableFrom(ArrayList.class)
+                dataHolder.getProperty(ListProperty.class, "List").get().get().getClass().isAssignableFrom(ArrayList.class)
         );
 
     }
+
+    public void testPropertyUpdateMethod() {
+
+        DataHolder dataHolder = new DataHolder();
+        dataHolder.store(new IntegerProperty<String>("Integer", 42));
+
+        Assert.assertEquals(
+                "Moaip",
+                true,
+                dataHolder.getProperty(IntegerProperty.class, "Integer").update(43).getClass().isAssignableFrom(IntegerProperty.class)
+        );
+
+    }
+
 
 }

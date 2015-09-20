@@ -31,4 +31,17 @@ public class StringProperty<K> implements Property<K, String> {
         return this.value;
     }
 
+    @Override
+    public Property<K, String> update(Object value) {
+
+        if(!(value instanceof String)) {
+            throw new IllegalArgumentException("The value must be a String.");
+        }
+
+        this.value = Optional.of((String) value);
+
+        return this;
+
+    }
+
 }

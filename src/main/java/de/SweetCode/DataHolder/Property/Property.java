@@ -14,9 +14,16 @@ public interface Property<K, V> {
     K getKey();
 
     /**
-     * Returns a optional with the value.
+     * Returns a Optional with the value.
      * @return
      */
     Optional<V> get();
+
+    /**
+     * Updates the value of the Property.
+     * @param value
+     * @return
+     */
+    Property<K, V> update(Object value);
 
 }

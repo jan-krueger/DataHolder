@@ -1,5 +1,6 @@
 import de.SweetCode.DataHolder.Property.Property;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -15,6 +16,13 @@ public class ExampleProperty implements Property<String, String> {
     @Override
     public Optional<String> get() {
         return Optional.of("Example Property Value");
+    }
+
+    @Override
+    public Property<String, String> update(Object value) {
+
+        return this;
+
     }
 
 }
