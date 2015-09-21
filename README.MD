@@ -3,6 +3,8 @@
 DataHolder is a simple project to provide a easy-to-use data storage solution.
 You can find some examples of the usage.
 
+#### [Latest Release](https://github.com/sweetcode/DataHolder/releases/latest) | [All Releases](https://github.com/sweetcode/DataHolder/releases/)
+
 ---
 #### Basic Usage
 ```java

@@ -45,7 +45,7 @@ public class DataHolder {
      * Returns all stored Property types.
      * @return
      */
-    public Collection<Class<?>> getPropertieTypes() {
+    public Collection<Class<?>> getPropertyTypes() {
 
         return this.datas.keySet();
 
