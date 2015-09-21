@@ -6,7 +6,11 @@ before_deploy:
   - git config --global user.email "builds@travis-ci.com"
   - git config --global user.name "Travis CI"
   - export GIT_TAG=$TRAVIS_BRANCH-v0.1.$TRAVIS_BUILD_NUMBER-beta
-  - git tag $GIT_TAG -a -m "This is a automaticlly deployed version of the project. This version was also tested by unit tests and only when it went through the tests it will be deployed, but this isn't a guarantee for a version without bugs."
+  - export GIT_COMMIT_MESSAGE = git log -1 --pretty=%B
+  - git tag $GIT_TAG -a -m "
+  This is a automaticlly deployed version of the project. This version was also tested by unit tests and only when it went through the tests it will be deployed, but this isn't a guarantee for a version without bugs.
+  $GIT_COMMIT_MESSAGE
+  "
   - git push -q https://$TOKEN@github.com/sweetcode/DataHolder --tags
 
 deploy:

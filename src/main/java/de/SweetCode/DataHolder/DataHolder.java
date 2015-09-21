@@ -195,4 +195,11 @@ public class DataHolder {
 
     }
 
+    /**
+     * Deletes all stored Properties.
+     */
+    public void clear() {
+        this.datas.clear();
+    }
+
 }
