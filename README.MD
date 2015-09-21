@@ -5,7 +5,7 @@ You can find some examples of the usage.
 
 ---
 #### Basic Usage
-```
+```java
 import de.SweetCode.DataHolder.DataHolder;
 
 public class PlayerData extends DataHolder {
@@ -21,14 +21,11 @@ primitive data in your data holder.
 ---
 ### Property Class
 To create your own Property class you just have to implement the `Property interface`.
-The interface contains three methods:
-    - K getKey()
-    - Optional<V> get()
-    - Property<K, V> update(Object value)
+The interface contains three methods `K getKey()`, `Optional<V> get()` and `Property<K, V> update(Object value)`.
 
 Below you can find a simple example how it works:
 
-```
+```java
 import de.SweetCode.DataHolder.Property.Property;
 
 public class ExampleProperty implements Property<String, Double> {
@@ -71,7 +68,7 @@ public class ExampleProperty implements Property<String, Double> {
 #### Store Method
 This method allows you to store a Property. The project already contains for all
 java primitive data types (String, Integer, Boolean etc.) a basic Property class.
-```
+```java
 PlayerData player = new PlayerData();
 
 player.store(new ExampleProperty("Money", 1200.5));
@@ -81,13 +78,13 @@ player.store(new ExampleProperty("Health", 12));
 #### Get Property/Properties
 This method returns the first Property, all Properties of the same kind or a Property related to a key.
 
-```
+```java
 ExampleProperty property = player.getProperty(ExampleProperty.class, "Money");
 System.out.println(String.format(property.getKey() + " => " + property.get().get()));
 ```
 This code writes into your console `Money => 1200.5`.
 And this is how you get all of the stored Properties of the same kind.
-```
+```java
 List<ExampleProperty> properties = player.getProperties(ExampleProperty.class);
 
 for(ExampleProperty entry : properties) {
@@ -104,12 +101,12 @@ Health => 12
 ---
 ### Delete Property/Properties
 To delete all Properties of the same kind is really easy.
-```
+```java
 player.deleteProperties(ExampleProperty.class);
 ```
 This would delete all Properties of the kind ExampleProperty.
 
 It's also really easy to delete a Property based on the type and key.
-```
+```java
 player.deleteProperty(ExampleProperty.class, "A");
 ```
