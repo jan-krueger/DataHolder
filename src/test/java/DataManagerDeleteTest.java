@@ -1,4 +1,5 @@
-import de.SweetCode.DataHolder.DataCarrier.DataHolder;
+
+import de.SweetCode.DataHolder.DataCarriers.DataHolder;
 import de.SweetCode.DataHolder.Property.properties.IntegerProperty;
 import de.SweetCode.DataHolder.Property.properties.StringProperty;
 import junit.framework.TestCase;

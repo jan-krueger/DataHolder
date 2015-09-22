@@ -1,7 +1,6 @@
 import de.SweetCode.DataHolder.Property.Property;
 import de.SweetCode.DataHolder.Property.PropertySerializable;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -9,12 +8,12 @@ import java.util.regex.Pattern;
 /**
  * Created by Yonas on 20.09.2015.
  */
-public class ExampleSerializableProperty<S, I> implements Property<String, Integer>, PropertySerializable<String> {
+public class ExampleSerializableProperty<S, I, S1> implements PropertySerializable<String, Integer, String> {
 
     private String key;
     private Optional<Integer> value;
 
-    public ExampleSerializableProperty(String key, int value) {
+    public ExampleSerializableProperty(String key, Integer value) {
         this.key = key;
         this.value = Optional.of(value);
     }
@@ -57,7 +56,7 @@ public class ExampleSerializableProperty<S, I> implements Property<String, Integ
     /**
      * This isn't the best way but it's just a simple example for the unit test.
      */
-     public static ExampleSerializableProperty<String, Integer> unserialize(String data) {
+     public static ExampleSerializableProperty<String, Integer, String> unserialize(String data) {
 
         Pattern re = Pattern.compile("(?:,|\\{)?([^:]*):(\"[^\"]*\"|\\{[^}]*\\}|[^},]*)", Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL);
         Matcher matcher = re.matcher(data);
@@ -79,7 +78,7 @@ public class ExampleSerializableProperty<S, I> implements Property<String, Integ
 
         }
 
-        return new ExampleSerializableProperty<String, Integer>(key, value);
+        return new ExampleSerializableProperty<>(key, value);
     }
 
 }

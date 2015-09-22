@@ -9,7 +9,7 @@ public class DataManagerSerializableTest {
     @Test
     public void testSerializable() {
 
-        ExampleSerializableProperty<String, Integer> exampleSerializableProperty = new ExampleSerializableProperty<String, Integer>("Money", 5);
+        ExampleSerializableProperty<String, Integer, String> exampleSerializableProperty = new ExampleSerializableProperty<>("Money", 5);
 
         String serialized = exampleSerializableProperty.serialize();
 
@@ -19,7 +19,7 @@ public class DataManagerSerializableTest {
                 serialized
         );
 
-        ExampleSerializableProperty<String, Integer> unserializedPropety = ExampleSerializableProperty.unserialize(serialized);
+        ExampleSerializableProperty<String, Integer, String> unserializedPropety = ExampleSerializableProperty.unserialize(serialized);
         Assert.assertEquals(
                 "Unserialized ExampleSerializableProperty doesn't contain the expected data.",
                 true,

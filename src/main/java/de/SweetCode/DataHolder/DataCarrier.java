@@ -60,7 +60,7 @@ public interface DataCarrier {
      * @param propertyClass The property class which implements the {@see de.SweetCode.DataHolder.Property.Property} interface.
      * @return T the result, if no property is stored for the class the function will return null.
      */
-    <T extends Property> T getProperty(Class<T> propertyClass, Object key);
+    <T extends Property> Property<?, ?> getProperty(Class<T> propertyClass, Object key);
 
     /**
      * Checks if the DataHolder contains the given Property class and if the class is related with the given key.

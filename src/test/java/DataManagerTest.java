@@ -2,7 +2,7 @@
  * Created by Yonas on 16.09.2015.
  */
 
-import de.SweetCode.DataHolder.DataCarrier.DataHolder;
+import de.SweetCode.DataHolder.DataCarriers.DataHolder;
 import de.SweetCode.DataHolder.Property.properties.*;
 import junit.framework.TestCase;
 import org.junit.Assert;
