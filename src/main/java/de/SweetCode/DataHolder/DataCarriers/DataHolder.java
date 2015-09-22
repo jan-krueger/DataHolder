@@ -24,9 +24,10 @@
  *
  */
 
-package de.SweetCode.DataHolder;
+package de.SweetCode.DataHolder.DataCarriers;
 
 import com.google.common.collect.ArrayListMultimap;
+import de.SweetCode.DataHolder.DataCarrier;
 import de.SweetCode.DataHolder.Property.Property;
 
 import java.util.ArrayList;
@@ -36,15 +37,24 @@ import java.util.List;
 /**
  * Created by Yonas on 15.09.2015.
  */
-public class DataHolder {
+public class DataHolder implements DataCarrier {
 
-    private ArrayListMultimap<Class<?>, Property<?, ?>> datas = ArrayListMultimap.create();
+    private ArrayListMultimap<Class<?>, Property<?, ?>> datas;
+
+    public DataHolder() {
+        this.datas = ArrayListMultimap.create();
+    }
+
+    public DataHolder(int expectedPropertyTypes, int expectedPropertyPerTypes) {
+        this.datas = ArrayListMultimap.create(expectedPropertyTypes, expectedPropertyPerTypes);
+    }
 
     /**
      * Stores a Property in the DataHolder
      * @param property
      * @return Returns true if it was successfully and false if a Property with the same key already exists in the DataHolder object.
      */
+    @Override
     public boolean store(Property<?, ?> property) {
 
         if(this.contains(property.getClass(), property.getKey())) {
@@ -61,6 +71,7 @@ public class DataHolder {
      * Returns all stored Properties for this DataHolder.
      * @return
      */
+    @Override
     public Collection<Property<?, ?>> getProperties() {
 
         return this.datas.values();
@@ -71,6 +82,7 @@ public class DataHolder {
      * Returns all stored Property types.
      * @return
      */
+    @Override
     public Collection<Class<?>> getPropertyTypes() {
 
         return this.datas.keySet();
@@ -99,7 +111,8 @@ public class DataHolder {
      * @param propertyClass The property class which implements the {@see de.SweetCode.DataHolder.Property.Property} interface.
      * @return T the result, if no property is stored for the class the function will return null.
      */
-    public <T extends Property<?, ?>> T getProperty(Class<T> propertyClass, Object key) {
+    @Override
+    public <T extends Property> T getProperty(Class<T> propertyClass, Object key) {
 
         List<T> list = this.getProperties(propertyClass);
 
@@ -139,6 +152,7 @@ public class DataHolder {
      * Returns the amount of the stored Properties
      * @return
      */
+    @Override
     public int size() {
         return this.datas.size();
     }
@@ -161,6 +175,7 @@ public class DataHolder {
      * @param <T>
      * @return true if the DataHolder contains the Property class with the related key.
      */
+    @Override
     public <T extends Property<?, ?>> boolean contains(Class<T> propertyClass, Object key) {
 
         return (!(this.getProperty(propertyClass, key) == null));
@@ -174,6 +189,7 @@ public class DataHolder {
      * @param <T>
      * @return returns the deleted Property object if the DataHolder contains the given pair of Property class and key otherwise it returns null.
      */
+    @Override
     public <T extends Property<?, ?>> T deleteProperty(Class<T> propertyClass, Object key) {
 
         if(!(this.contains(propertyClass, key))) {
@@ -224,6 +240,7 @@ public class DataHolder {
     /**
      * Deletes all stored Properties.
      */
+    @Override
     public void clear() {
         this.datas.clear();
     }

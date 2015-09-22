@@ -1,14 +1,14 @@
 # DataHolder ![https://travis-ci.org/sweetcode/DataHolder](https://api.travis-ci.org/sweetcode/DataHolder.svg)
 ---
 DataHolder is a simple project to provide a easy-to-use data storage solution.
-You can find some examples of the usage.
+You will find some examples of the usage below.
 
 #### [Latest Release](https://github.com/sweetcode/DataHolder/releases/latest) | [All Releases](https://github.com/sweetcode/DataHolder/releases/)
 
 ---
 #### Basic Usage
 ```java
-import de.SweetCode.DataHolder.DataHolder;
+import de.SweetCode.DataHolder.DataCarrier.DataHolder;
 
 public class PlayerData extends DataHolder {
 
@@ -17,8 +17,7 @@ public class PlayerData extends DataHolder {
 }
 ```
 
-Thats it. You have a working DataHolder now. I show you below how you can store
-primitive data in your data holder.
+Thats it. You have a working DataHolder now.
 
 ---
 ### Property Class
@@ -82,7 +81,7 @@ This method returns the first Property, all Properties of the same kind or a Pro
 
 ```java
 ExampleProperty property = player.getProperty(ExampleProperty.class, "Money");
-System.out.println(String.format(property.getKey() + " => " + property.get().get()));
+System.out.println(property.getKey() + " => " + property.get().get());
 ```
 This code writes into your console `Money => 1200.5`.
 And this is how you get all of the stored Properties of the same kind.
@@ -90,7 +89,7 @@ And this is how you get all of the stored Properties of the same kind.
 List<ExampleProperty> properties = player.getProperties(ExampleProperty.class);
 
 for(ExampleProperty entry : properties) {
-    System.out.println(String.format(entry.getKey() + " => " + entry.get().get()));
+    System.out.println(entry.getKey() + " => " + entry.get().get());
 }
 
 ```
@@ -111,4 +110,12 @@ This would delete all Properties of the kind ExampleProperty.
 It's also really easy to delete a Property based on the type and key.
 ```java
 player.deleteProperty(ExampleProperty.class, "A");
+```
+---
+### Store all kind of Properties
+This is the main advantage. You can store all kind of Properties in the DataHolder it only has to be a Property everything else is up to you.
+
+```java
+player.store(new BooleanProperty<String>("online", true));
+player.store(new StringProperty<String>("homepage", "http://example.org"));
 ```
