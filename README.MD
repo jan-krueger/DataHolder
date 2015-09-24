@@ -3,7 +3,7 @@
 `DataHolder` is a simple project to provide a easy-to-use data storage solution.
 You will find some examples of the usage below.
 
-#### [Latest Release](https://github.com/sweetcode/DataHolder/releases/latest) [![Coverage Status](https://coveralls.io/repos/sweetcode/DataHolder/badge.svg?branch=master&service=github)](https://coveralls.io/github/sweetcode/DataHolder?branch=master) | [All Releases](https://github.com/sweetcode/DataHolder/releases/)
+#### [Latest Release](https://github.com/sweetcode/DataHolder/releases/latest) | [All Releases](https://github.com/sweetcode/DataHolder/releases/)
 
 ---
 #### Basic Usage
