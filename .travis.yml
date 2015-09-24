@@ -6,7 +6,7 @@ before_script:
   - pip install --user codecov
 
 after_success:
-  - codecov
+  - codecov --token=$TOKEN_CODECOV
 
 before_deploy:
   - git config --global user.email "builds@travis-ci.com"
