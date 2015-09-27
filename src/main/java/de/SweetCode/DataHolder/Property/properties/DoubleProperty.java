@@ -53,7 +53,7 @@ public class DoubleProperty<K> implements Property<K, Double> {
     }
 
     @Override
-    public Optional<Double> get() {
+    public Optional<Double> getValue() {
         return this.value;
     }
 

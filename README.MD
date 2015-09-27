@@ -3,6 +3,9 @@
 `DataHolder` is a simple project to provide a easy-to-use data storage solution.
 You will find some examples of the usage below.
 
+Please keep in mind that this version isn't ready for a production environment. Every
+release can contain basic changes.
+
 #### [Latest Release](https://github.com/sweetcode/DataHolder/releases/latest) | [All Releases](https://github.com/sweetcode/DataHolder/releases/)
 
 ---
@@ -75,7 +78,7 @@ public interface DataCarrier {
      * @param <T>
      * @return returns the deleted Property object if the DataHolder contains the given pair of Property class and key otherwise it returns null.
      */
-    <T extends Property<?, ?>> T deleteProperty(Class<T> propertyClass, Object key);
+    <T extends Property<?, ?>> Optional<T> deleteProperty(Class<T> propertyClass, Object key);
 
     /**
      * Returns the size.
@@ -119,7 +122,7 @@ public class ExampleProperty implements Property<String, Double> {
     }
 
     @Override
-    public Optional<Double> get() {
+    public Optional<Double> getValue() {
         return this.value;
     }
 
@@ -162,7 +165,7 @@ public class ExampleSerializableProperty implements PropertySerializable<String,
     }
 
     @Override
-    public Optional<Double> get() {
+    public Optional<Double> getValue() {
         return this.value;
     }
 
@@ -206,7 +209,7 @@ player.store(new ExampleProperty("Health", 12));
 This method returns the first `Property`, all `Properties` of the same kind or a `Property` related to a key.
 
 ```java
-ExampleProperty property = player.getProperty(ExampleProperty.class, "Money");
+ExampleProperty property = player.getProperty(ExampleProperty.class, "Money").get();
 System.out.println(property.getKey() + " => " + property.get().get());
 ```
 This code writes into your console `Money => 1200.5`.

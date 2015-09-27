@@ -14,7 +14,7 @@ public class ExampleProperty implements Property<String, String> {
     }
 
     @Override
-    public Optional<String> get() {
+    public Optional<String> getValue() {
         return Optional.of("Example Property Value");
     }
 

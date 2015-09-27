@@ -54,7 +54,7 @@ public class ListProperty<K> implements Property<K, List> {
     }
 
     @Override
-    public Optional<List> get() {
+    public Optional<List> getValue() {
         return this.value;
     }
 

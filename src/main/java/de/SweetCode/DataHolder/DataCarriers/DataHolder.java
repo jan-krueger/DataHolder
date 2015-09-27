@@ -33,6 +33,7 @@ import de.SweetCode.DataHolder.Property.Property;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by Yonas on 15.09.2015.
@@ -95,13 +96,13 @@ public class DataHolder implements DataCarrier {
      * @param <T>
      * @return T the result, if no property is stored for the class the function will return null.
      */
-    public <T extends Property<?, ?>> T getFirstProperty(Class<T> propertyClass) {
+    public <T extends Property<?, ?>> Optional<T> getFirstProperty(Class<T> propertyClass) {
 
         if(!(this.datas.containsKey(propertyClass))) {
-            return null;
+            return Optional.empty();
         }
 
-        return ((T) this.datas.get(propertyClass).get(0));
+        return Optional.of(((T) this.datas.get(propertyClass).get(0)));
 
     }
 
@@ -112,23 +113,23 @@ public class DataHolder implements DataCarrier {
      * @return T the result, if no property is stored for the class the function will return null.
      */
     @Override
-    public <T extends Property> T getProperty(Class<T> propertyClass, Object key) {
+    public <T extends Property> Optional<T> getProperty(Class<T> propertyClass, Object key) {
 
         List<T> list = this.getProperties(propertyClass);
 
         if(list.isEmpty()) {
-            return null;
+            return Optional.empty();
         }
 
         for(T entry : this.getProperties(propertyClass)) {
 
             if(entry.getKey().equals(key)) {
-                return entry;
+                return Optional.of(entry);
             }
 
         }
 
-        return null;
+        return Optional.empty();
 
     }
 
@@ -165,7 +166,7 @@ public class DataHolder implements DataCarrier {
      */
     public <T extends Property<?, ?>> boolean contains(Class<T> propertyClass) {
 
-        return (!(this.datas.get(propertyClass) == null));
+        return (!(this.datas.get(propertyClass).isEmpty()));
 
     }
 
@@ -178,7 +179,7 @@ public class DataHolder implements DataCarrier {
     @Override
     public <T extends Property<?, ?>> boolean contains(Class<T> propertyClass, Object key) {
 
-        return (!(this.getProperty(propertyClass, key) == null));
+        return this.getProperty(propertyClass, key).isPresent();
 
     }
 
@@ -190,14 +191,14 @@ public class DataHolder implements DataCarrier {
      * @return returns the deleted Property object if the DataHolder contains the given pair of Property class and key otherwise it returns null.
      */
     @Override
-    public <T extends Property<?, ?>> T deleteProperty(Class<T> propertyClass, Object key) {
+    public <T extends Property<?, ?>> Optional<T> deleteProperty(Class<T> propertyClass, Object key) {
 
         if(!(this.contains(propertyClass, key))) {
-            return null;
+            return Optional.empty();
         }
 
-        T property = this.getProperty(propertyClass, key);
-        this.deleteProperty(property);
+        Optional<T> property = this.getProperty(propertyClass, key);
+        this.deleteProperty(property.get());
         return property;
 
     }
@@ -208,14 +209,14 @@ public class DataHolder implements DataCarrier {
      * @param <T>
      * @return returns the deleted Property object if the DataHolder contains the given pair of Property class and key otherwise it returns null.
      */
-    public <T extends Property<?, ?>> T deleteProperty(T property) {
+    public <T extends Property<?, ?>> Optional<T> deleteProperty(T property) {
 
         if(!(this.contains(property.getClass(), property.getKey()))) {
-            return null;
+            return Optional.empty();
         }
 
         this.datas.remove(property.getClass(), property);
-        return property;
+        return Optional.of(property);
 
     }
 

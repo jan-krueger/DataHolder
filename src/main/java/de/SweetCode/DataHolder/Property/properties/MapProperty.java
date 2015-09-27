@@ -54,7 +54,7 @@ public class MapProperty<K> implements Property<K, Map> {
     }
 
     @Override
-    public Optional<Map> get() {
+    public Optional<Map> getValue() {
         return this.value;
     }
 

@@ -53,7 +53,7 @@ public class StringProperty<K> implements Property<K, String> {
     }
 
     @Override
-    public Optional<String> get() {
+    public Optional<String> getValue() {
         return this.value;
     }
 

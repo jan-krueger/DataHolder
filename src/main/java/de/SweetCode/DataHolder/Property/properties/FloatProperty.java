@@ -53,7 +53,7 @@ public class FloatProperty<K> implements Property<K, Float> {
     }
 
     @Override
-    public Optional<Float> get() {
+    public Optional<Float> getValue() {
         return this.value;
     }
 

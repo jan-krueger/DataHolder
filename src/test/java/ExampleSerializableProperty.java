@@ -24,7 +24,7 @@ public class ExampleSerializableProperty<S, I, S1> implements PropertySerializab
     }
 
     @Override
-    public Optional<Integer> get() {
+    public Optional<Integer> getValue() {
         return this.value;
     }
 
@@ -49,7 +49,7 @@ public class ExampleSerializableProperty<S, I, S1> implements PropertySerializab
         return String.format(
                 "{\"key\":%s,\"value\":%d}",
                 this.getKey(),
-                this.get().get()
+                this.getValue().get()
         );
     }
 

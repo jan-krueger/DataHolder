@@ -53,7 +53,7 @@ public class BooleanProperty<K> implements Property<K, Boolean> {
     }
 
     @Override
-    public Optional<Boolean> get() {
+    public Optional<Boolean> getValue() {
         return this.value;
     }
 

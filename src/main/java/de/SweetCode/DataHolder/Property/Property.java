@@ -43,7 +43,7 @@ public interface Property<K, V> {
      * Returns a Optional with the value.
      * @return
      */
-    Optional<V> get();
+    Optional<V> getValue();
 
     /**
      * Updates the value of the Property.

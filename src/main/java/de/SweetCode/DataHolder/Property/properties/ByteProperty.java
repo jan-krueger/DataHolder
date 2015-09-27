@@ -53,7 +53,7 @@ public class ByteProperty<K> implements Property<K, Byte> {
     }
 
     @Override
-    public Optional<Byte> get() {
+    public Optional<Byte> getValue() {
         return this.value;
     }
 

@@ -53,7 +53,7 @@ public class CharProperty<K> implements Property<K, Character> {
     }
 
     @Override
-    public Optional<Character> get() {
+    public Optional<Character> getValue() {
         return this.value;
     }
 

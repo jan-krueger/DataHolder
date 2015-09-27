@@ -53,7 +53,7 @@ public class ShortProperty<K> implements Property<K, Short> {
     }
 
     @Override
-    public Optional<Short> get() {
+    public Optional<Short> getValue() {
         return this.value;
     }
 

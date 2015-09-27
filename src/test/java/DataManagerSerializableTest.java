@@ -23,7 +23,7 @@ public class DataManagerSerializableTest {
         Assert.assertEquals(
                 "Unserialized ExampleSerializableProperty doesn't contain the expected data.",
                 true,
-                (unserializedPropety.getKey().equals("Money") && unserializedPropety.get().get() == 5)
+                (unserializedPropety.getKey().equals("Money") && unserializedPropety.getValue().get() == 5)
         );
 
     }

@@ -31,6 +31,7 @@ import de.SweetCode.DataHolder.Property.Property;
 
 import java.util.Collection;
 import java.util.Map;
+import java.util.Optional;
 import java.util.TreeMap;
 
 /**
@@ -62,13 +63,13 @@ public class DataTreeHolder implements DataCarrier {
     }
 
     @Override
-    public <T extends Property> T getProperty(Class<T> propertyClass, Object key) {
+    public <T extends Property> Optional<T> getProperty(Class<T> propertyClass, Object key) {
 
         if(!(this.contains(propertyClass, key))) {
-            return null;
+            return Optional.empty();
         }
 
-        return (T) this.datas.get(propertyClass);
+        return Optional.of((T) this.datas.get(propertyClass));
 
     }
 
@@ -79,18 +80,18 @@ public class DataTreeHolder implements DataCarrier {
             return false;
         }
 
-        return (this.datas.get(propertyClass).get().get().equals(key));
+        return (this.datas.get(propertyClass).getValue().get().equals(key));
 
     }
 
     @Override
-    public <T extends Property<?, ?>> T deleteProperty(Class<T> propertyClass, Object key) {
+    public <T extends Property<?, ?>> Optional<T> deleteProperty(Class<T> propertyClass, Object key) {
 
         if(!(this.contains(propertyClass, key))) {
-            return null;
+            return Optional.empty();
         }
 
-        return (T) this.datas.remove(propertyClass);
+        return Optional.of((T) this.datas.remove(propertyClass));
 
     }
 

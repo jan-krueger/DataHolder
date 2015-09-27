@@ -53,7 +53,7 @@ public class LongProperty<K> implements Property<K, Long> {
     }
 
     @Override
-    public Optional<Long> get() {
+    public Optional<Long> getValue() {
         return this.value;
     }
 

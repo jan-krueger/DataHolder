@@ -53,7 +53,7 @@ public class IntegerProperty<K> implements Property<K, Integer> {
     }
 
     @Override
-    public Optional<Integer> get() {
+    public Optional<Integer> getValue() {
         return this.value;
     }
 

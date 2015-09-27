@@ -29,6 +29,7 @@ package de.SweetCode.DataHolder;
 import de.SweetCode.DataHolder.Property.Property;
 
 import java.util.Collection;
+import java.util.Optional;
 
 /**
  * Created by Yonas on 22.09.2015.
@@ -38,7 +39,7 @@ public interface DataCarrier {
     /**
      * Stores a Property in the DataHolder
      * @param property
-     * @return Returns true if it was successfully and false if a Property with the same key already exists in the DataHolder object.
+     * @return Returns true if it was successfully and false if it wasn't successfully.
      */
     boolean store(Property<?, ?> property);
 
@@ -60,7 +61,7 @@ public interface DataCarrier {
      * @param propertyClass The property class which implements the {@see de.SweetCode.DataHolder.Property.Property} interface.
      * @return T the result, if no property is stored for the class the function will return null.
      */
-    <T extends Property> Property<?, ?> getProperty(Class<T> propertyClass, Object key);
+    <T extends Property> Optional<T> getProperty(Class<T> propertyClass, Object key);
 
     /**
      * Checks if the DataHolder contains the given Property class and if the class is related with the given key.
@@ -77,7 +78,7 @@ public interface DataCarrier {
      * @param <T>
      * @return returns the deleted Property object if the DataHolder contains the given pair of Property class and key otherwise it returns null.
      */
-    <T extends Property<?, ?>> T deleteProperty(Class<T> propertyClass, Object key);
+    <T extends Property<?, ?>> Optional<T> deleteProperty(Class<T> propertyClass, Object key);
 
     /**
      * Returns the size.

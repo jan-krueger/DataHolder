@@ -25,7 +25,7 @@ public class DataManagerDeleteTest extends TestCase {
         dataHolder.store(objectB);
 
 
-        StringProperty<String> deletedProperty = dataHolder.deleteProperty(objectA);
+        StringProperty<String> deletedProperty = dataHolder.deleteProperty(objectA).get();
 
         Assert.assertEquals(
                 "Deleted Property is null, should be a StringProperty.",
@@ -53,7 +53,7 @@ public class DataManagerDeleteTest extends TestCase {
         dataHolder.store(objectB);
 
 
-        StringProperty<String> deletedProperty = dataHolder.deleteProperty(StringProperty.class, "A");
+        StringProperty<String> deletedProperty = dataHolder.deleteProperty(StringProperty.class, "A").get();
 
         Assert.assertEquals(
                 "Deleted Property is null, should be a StringProperty.",
