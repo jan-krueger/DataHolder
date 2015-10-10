@@ -92,7 +92,7 @@ public class DataUniqueKeyHolder implements DataCarrier {
             return false;
         }
 
-        return (this.datas.get(propertyClass).getValue().get().equals(key));
+        return (this.datas.get(propertyClass).getKey().equals(key));
     }
 
     @Override
