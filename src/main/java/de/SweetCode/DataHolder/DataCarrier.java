@@ -38,26 +38,26 @@ public interface DataCarrier {
 
     /**
      * Stores a Property in the DataHolder
-     * @param property
+     * @param property the property
      * @return Returns true if it was successfully and false if it wasn't successfully.
      */
     boolean store(Property<?, ?> property);
 
     /**
      * Returns all stored Properties for this DataHolder.
-     * @return
+     * @return returns a Collection
      */
     Collection<Property<?, ?>> getProperties();
 
     /**
      * Returns all stored Property types.
-     * @return
+     * @return returns a Collection
      */
     Collection<Class<?>> getPropertyTypes();
 
     /**
      * Returns the Property by key.
-     * @param <T>
+     * @param <T> generic
      * @param propertyClass The property class which implements the {@see de.SweetCode.DataHolder.Property.Property} interface.
      * @return T the result, if no property is stored for the class the function will return null.
      */
@@ -75,14 +75,14 @@ public interface DataCarrier {
      * Delets a Property that is related with a key.
      * @param propertyClass The Property class.
      * @param key The related key.
-     * @param <T>
+     * @param <T> generic
      * @return returns the deleted Property object if the DataHolder contains the given pair of Property class and key otherwise it returns null.
      */
     <T extends Property<?, ?>> Optional<T> deleteProperty(Class<T> propertyClass, Object key);
 
     /**
      * Returns the size.
-     * @return
+     * @return returns the size
      */
     int size();
 

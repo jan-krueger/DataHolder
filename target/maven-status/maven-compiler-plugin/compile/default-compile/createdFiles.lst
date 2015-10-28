@@ -1,0 +1,17 @@
+de\SweetCode\DataHolder\Property\properties\MapProperty.class
+de\SweetCode\DataHolder\Property\properties\IntegerProperty.class
+de\SweetCode\DataHolder\DataCarriers\DataUniqueKeyHolder.class
+de\SweetCode\DataHolder\Property\properties\FloatProperty.class
+de\SweetCode\DataHolder\Property\properties\BooleanProperty.class
+de\SweetCode\DataHolder\DataCarriers\DataTreeHolder.class
+de\SweetCode\DataHolder\Property\PropertySerializable.class
+de\SweetCode\DataHolder\DataCarriers\DataHolder.class
+de\SweetCode\DataHolder\DataCarrier.class
+de\SweetCode\DataHolder\Property\properties\ShortProperty.class
+de\SweetCode\DataHolder\Property\properties\ByteProperty.class
+de\SweetCode\DataHolder\Property\properties\LongProperty.class
+de\SweetCode\DataHolder\Property\properties\ListProperty.class
+de\SweetCode\DataHolder\Property\Property.class
+de\SweetCode\DataHolder\Property\properties\DoubleProperty.class
+de\SweetCode\DataHolder\Property\properties\CharProperty.class
+de\SweetCode\DataHolder\Property\properties\StringProperty.class

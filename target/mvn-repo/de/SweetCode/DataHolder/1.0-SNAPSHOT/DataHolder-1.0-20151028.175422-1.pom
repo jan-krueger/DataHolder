@@ -12,13 +12,6 @@
     <name>DataHolder</name>
     <url>https://github.com/sweetcode/DataHolder</url>
 
-    <licenses>
-        <license>
-            <name>MIT</name>
-            <url>https://github.com/sweetcode/DataHolder/blob/master/LICENSE</url>
-        </license>
-    </licenses>
-
     <build>
         <defaultGoal>test</defaultGoal>
         <finalName>DataHolder</finalName>
