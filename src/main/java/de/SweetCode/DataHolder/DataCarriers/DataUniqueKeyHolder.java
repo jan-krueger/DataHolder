@@ -28,11 +28,11 @@ package de.SweetCode.DataHolder.DataCarriers;
 
 import de.SweetCode.DataHolder.DataCarrier;
 import de.SweetCode.DataHolder.Property.Property;
+import de.SweetCode.DataHolder.utils.Optional;
 
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 /**
  * Created by Yonas on 22.09.2015.

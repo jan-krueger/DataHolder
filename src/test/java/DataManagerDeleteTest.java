@@ -89,7 +89,7 @@ public class DataManagerDeleteTest extends TestCase {
         Assert.assertEquals(
                 String.format("Amount of deleted Properties is wrong. %d instead of 2.", deletedList.size()),
                 true,
-                (!(deletedList.size() == 2))
+                (deletedList.size() == 2)
         );
 
         Assert.assertEquals(

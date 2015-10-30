@@ -26,29 +26,21 @@
 
 package de.SweetCode.DataHolder.DataCarriers;
 
-import com.google.common.collect.ArrayListMultimap;
 import de.SweetCode.DataHolder.DataCarrier;
 import de.SweetCode.DataHolder.Property.Property;
+import de.SweetCode.DataHolder.utils.Optional;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+
 
 /**
  * Created by Yonas on 15.09.2015.
  */
 public class DataHolder implements DataCarrier {
 
-    private ArrayListMultimap<Class<?>, Property<?, ?>> datas;
+    private Map<Class<?>, ArrayList<Property<?, ?>>> datas = new HashMap<>();
 
-    public DataHolder() {
-        this.datas = ArrayListMultimap.create();
-    }
-
-    public DataHolder(int expectedPropertyTypes, int expectedPropertyPerTypes) {
-        this.datas = ArrayListMultimap.create(expectedPropertyTypes, expectedPropertyPerTypes);
-    }
+    public DataHolder() {}
 
     /**
      * Stores a Property in the DataHolder
@@ -56,13 +48,22 @@ public class DataHolder implements DataCarrier {
      * @return Returns true if it was successfully and false if a Property with the same key already exists in the DataHolder object.
      */
     @Override
-    public boolean store(Property<?, ?> property) {
+    public boolean store(final Property<?, ?> property) {
 
         if(this.contains(property.getClass(), property.getKey())) {
             return false;
         }
 
-        this.datas.put(property.getClass(), property);
+        if(this.datas.containsKey(property.getClass())) {
+            this.datas.get(property.getClass()).add(property);
+            return true;
+        }
+
+        this.datas.put(property.getClass(), new ArrayList<Property<?, ?>>() {{
+
+            this.add(property);
+
+        }});
 
         return true;
 
@@ -75,7 +76,17 @@ public class DataHolder implements DataCarrier {
     @Override
     public Collection<Property<?, ?>> getProperties() {
 
-        return this.datas.values();
+        Collection<Property<?, ?>> collection = new ArrayList<>();
+
+        for(ArrayList<Property<?, ?>> list : this.datas.values()) {
+
+            for(Property<?, ?> entry : list) {
+                collection.add(entry);
+            }
+
+        }
+
+        return collection;
 
     }
 
@@ -215,7 +226,8 @@ public class DataHolder implements DataCarrier {
             return Optional.empty();
         }
 
-        this.datas.remove(property.getClass(), property);
+        this.datas.get(property.getClass()).remove(property);
+
         return Optional.of(property);
 
     }
@@ -233,7 +245,7 @@ public class DataHolder implements DataCarrier {
         }
 
         List<T> properties = this.getProperties(propertyClass);
-        this.datas.removeAll(propertyClass);
+        this.datas.remove(propertyClass);
         return properties;
 
     }

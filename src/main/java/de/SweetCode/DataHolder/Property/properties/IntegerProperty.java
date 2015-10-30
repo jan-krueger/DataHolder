@@ -27,9 +27,7 @@
 package de.SweetCode.DataHolder.Property.properties;
 
 import de.SweetCode.DataHolder.Property.Property;
-
-import java.util.Optional;
-
+import de.SweetCode.DataHolder.utils.Optional;
 /**
  * Created by Yonas on 18.09.2015.
  */

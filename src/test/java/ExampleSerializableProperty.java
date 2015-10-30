@@ -1,7 +1,7 @@
 import de.SweetCode.DataHolder.Property.Property;
 import de.SweetCode.DataHolder.Property.PropertySerializable;
+import de.SweetCode.DataHolder.utils.Optional;
 
-import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

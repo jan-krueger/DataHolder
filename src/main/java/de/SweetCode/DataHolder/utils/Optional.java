@@ -24,48 +24,77 @@
  *
  */
 
-package de.SweetCode.DataHolder.Property.properties;
+package de.SweetCode.DataHolder.utils;
 
-import de.SweetCode.DataHolder.Property.Property;
-import de.SweetCode.DataHolder.utils.Optional;
+import java.util.NoSuchElementException;
 
 /**
- * Created by Yonas on 18.09.2015.
+ * Created by Yonas on 30.10.2015.
  */
-public class ByteProperty<K> implements Property<K, Byte> {
+public class Optional<T> {
 
-    private K key;
-    private Optional<Byte> value;
+    private T value;
 
-    public ByteProperty(K key, Optional<Byte> value) {
-        this.key = key;
+    public Optional(T value) {
         this.value = value;
     }
 
-    public ByteProperty(K key, byte value) {
-        this(key, Optional.of(value));
-    }
+    public T get() {
 
-    @Override
-    public K getKey() {
-        return this.key;
-    }
-
-    @Override
-    public Optional<Byte> getValue() {
-        return this.value;
-    }
-
-    @Override
-    public Property<K, Byte> update(Object value) {
-
-        if(!(value instanceof Byte)) {
-            throw new IllegalArgumentException("The value must be a Byte.");
+        if(!(this.isPresent())) {
+            throw new NoSuchElementException();
         }
 
-        this.value = Optional.of((Byte) value);
+        return this.value;
 
-        return this;
+    }
+
+    public boolean isPresent() {
+        return (!(this.value == null));
+    }
+
+    public T orElse(T other) {
+
+        return (this.isPresent() ? this.value : other);
+
+    }
+
+    public T orElseThrow(Throwable throwable) throws Throwable {
+
+        if(!(this.isPresent())) {
+            throw throwable;
+        }
+
+        return this.value;
+
+    }
+
+    public static <T> Optional<T> empty() {
+        return new Optional<T>(null);
+    }
+
+    public static <T> Optional<T> of(T value) {
+        return new Optional<T>(value);
+    }
+
+    public static <T> Optional<T> ofNullable(T value) {
+
+        if(value == null) {
+            return Optional.empty();
+        }
+
+        return new Optional<T>(value);
+
+    }
+
+    @Override
+    public int hashCode() {
+
+        if(!(this.isPresent())) {
+            return 0;
+        }
+
+        return this.value.hashCode();
 
     }
 
