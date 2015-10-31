@@ -194,14 +194,6 @@ public class DataManagerTest extends TestCase {
                 dataHolder.getProperty(IntegerProperty.class, "Integer").get().update(50).getValue().get()
         );
 
-
-        assertEquals(
-                "DataHolder update method doesn't work.",
-                true,
-                dataHolder.updateProperty(IntegerProperty.class, "Integer", 100) && dataHolder.getProperty(IntegerProperty.class, "Integer").get().getValue().get() == 100
-        );
-
-
     }
 
 }
