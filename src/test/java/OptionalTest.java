@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2015 Jan Krüger
+ * Copyright (c) 2015 Jan Krueger
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,10 +24,8 @@
  *
  */
 
-import com.sun.javaws.exceptions.InvalidArgumentException;
 import de.SweetCode.DataHolder.utils.Optional;
 import junit.framework.TestCase;
-import org.junit.Test;
 
 /**
  * Created by Yonas on 31.10.2015.
