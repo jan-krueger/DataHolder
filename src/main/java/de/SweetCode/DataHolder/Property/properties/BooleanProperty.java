@@ -58,13 +58,9 @@ public class BooleanProperty<K> implements Property<K, Boolean> {
     }
 
     @Override
-    public Property<K, Boolean> update(Object value) {
+    public Property<K, Boolean> update(Boolean value) {
 
-        if(!(value instanceof Boolean)) {
-            throw new IllegalArgumentException("The value must be a Boolean.");
-        }
-
-        this.value = Optional.of((Boolean) value);
+        this.value = Optional.of(value);
 
         return this;
 

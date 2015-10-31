@@ -57,13 +57,9 @@ public class DoubleProperty<K> implements Property<K, Double> {
     }
 
     @Override
-    public Property<K, Double> update(Object value) {
+    public Property<K, Double> update(Double value) {
 
-        if(!(value instanceof Double)) {
-            throw new IllegalArgumentException("The value must be a Double.");
-        }
-
-        this.value = Optional.of((Double) value);
+        this.value = Optional.of(value);
 
         return this;
 

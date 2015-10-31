@@ -56,13 +56,9 @@ public class IntegerProperty<K> implements Property<K, Integer> {
     }
 
     @Override
-    public Property<K, Integer> update(Object value) {
+    public Property<K, Integer> update(Integer value) {
 
-        if(!(value instanceof Integer)) {
-            throw new IllegalArgumentException("The value must be a Integer.");
-        }
-
-        this.value = Optional.of((Integer) value);
+        this.value = Optional.of(value);
 
         return this;
 

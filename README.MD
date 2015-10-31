@@ -72,13 +72,25 @@ public interface DataCarrier {
     <T extends Property<?, ?>> boolean contains(Class<T> propertyClass, Object key);
 
     /**
-     * Delets a Property that is related with a key.
+     * Deletes a Property that is related with a key.
      * @param propertyClass The Property class.
      * @param key The related key.
      * @param <T>
      * @return returns the deleted Property object if the DataHolder contains the given pair of Property class and key otherwise it returns null.
      */
     <T extends Property<?, ?>> Optional<T> deleteProperty(Class<T> propertyClass, Object key);
+
+    /**
+     * Updates the value of a property.
+     * @param propertyClass The property class.
+     * @param key The related key.
+     * @param value The value to set.
+     * @param <K>
+     * @param <V>
+     * @param <T>
+     * @return boolean true if it was successfully, otherwise false
+     */
+    <K, V, T extends Property<K, V>> boolean update(Class<T> propertyClass, K key, V value);
 
     /**
      * Returns the size.
@@ -127,13 +139,9 @@ public class ExampleProperty implements Property<String, Double> {
     }
 
     @Override
-    public Property<K, V> update(Object value) {
+    public Property<String, Double> update(Double value) {
 
-        if(!(value instanceof Double)) {
-            return null;
-        }
-
-        this.value = Optional.of((Double) value);
+        this.value = Optional.of(value);
 
         return this;
     }
@@ -170,13 +178,9 @@ public class ExampleSerializableProperty implements PropertySerializable<String,
     }
 
     @Override
-    public Property<String, Double> update(Object value) {
+    public Property<String, Double> update(Double value) {
 
-        if(!(value instanceof Double)) {
-            return null;
-        }
-
-        this.value = Optional.of((Double) value);
+        this.value = Optional.of(value);
 
         return this;
     }
@@ -247,4 +251,14 @@ This is the main advantage. You can store all kind of `Property` in the `DataCar
 ```java
 player.store(new BooleanProperty<String>("online", true));
 player.store(new StringProperty<String>("homepage", "http://example.org"));
+```
+
+### Update Properties
+This is really simple but at least you have to ways to do this.
+```java
+player.getProperty(BooleanProperty.class, "online").update(false); //Changes the value to false
+```
+or
+```java
+player.updateProperty(BooleanProperty.class, "online", false); //Changes the value to false
 ```

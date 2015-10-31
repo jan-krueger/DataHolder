@@ -59,13 +59,9 @@ public class ListProperty<K> implements Property<K, List> {
     }
 
     @Override
-    public Property<K, List> update(Object value) {
+    public Property<K, List> update(List value) {
 
-        if(!(value instanceof List)) {
-            throw new IllegalArgumentException("The value must be a List.");
-        }
-
-        this.value = Optional.of((List) value);
+        this.value = Optional.of(value);
 
         return this;
 

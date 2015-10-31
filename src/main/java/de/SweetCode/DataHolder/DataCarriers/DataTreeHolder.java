@@ -96,6 +96,18 @@ public class DataTreeHolder implements DataCarrier {
     }
 
     @Override
+    public <K, V, T extends Property<K, V>> boolean updateProperty(Class<T> propertyClass, K key, V value) {
+
+        if (this.contains(propertyClass, key)) {
+            return false;
+        }
+
+        this.getProperty(propertyClass, key).get().update(value);
+        return true;
+
+    }
+
+    @Override
     public int size() {
         return this.datas.size();
     }

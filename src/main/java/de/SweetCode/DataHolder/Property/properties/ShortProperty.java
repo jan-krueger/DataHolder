@@ -57,13 +57,9 @@ public class ShortProperty<K> implements Property<K, Short> {
     }
 
     @Override
-    public Property<K, Short> update(Object value) {
+    public Property<K, Short> update(Short value) {
 
-        if(!(value instanceof Short)) {
-            throw new IllegalArgumentException("The value must be a Short.");
-        }
-
-        this.value = Optional.of((Short) value);
+        this.value = Optional.of(value);
 
         return this;
 

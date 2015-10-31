@@ -57,13 +57,9 @@ public class CharProperty<K> implements Property<K, Character> {
     }
 
     @Override
-    public Property<K, Character> update(Object value) {
+    public Property<K, Character> update(Character value) {
 
-        if(!(value instanceof Character)) {
-            throw new IllegalArgumentException("The value must be a Character.");
-        }
-
-        this.value = Optional.of((Character) value);
+        this.value = Optional.of(value);
 
         return this;
 

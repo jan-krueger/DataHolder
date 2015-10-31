@@ -19,7 +19,7 @@ public class DataManagerTest extends TestCase {
 
         DataHolder dataHolder = new DataHolder();
 
-        Assert.assertEquals(
+        assertEquals(
                 "Unexpected properties stored in the default DataHolder.",
                 true,
                 dataHolder.getProperties().isEmpty()
@@ -32,7 +32,7 @@ public class DataManagerTest extends TestCase {
         DataHolder dataHolder = new DataHolder();
         dataHolder.store(new ExampleProperty());
 
-        Assert.assertEquals(
+        assertEquals(
                 "Couldn't store the Property.",
                 true,
                 dataHolder.getProperty(ExampleProperty.class, "ExampleProperty").get().getValue().isPresent()
@@ -43,9 +43,9 @@ public class DataManagerTest extends TestCase {
     public void testBooleanProperty() {
 
         DataHolder dataHolder = new DataHolder();
-        dataHolder.store(new BooleanProperty<String>("Boolean", true));
+        dataHolder.store(new BooleanProperty<>("Boolean", true));
 
-        Assert.assertEquals(
+        assertEquals(
                 "Default Property (Boolean) didn't store correctly.",
                 true,
                 dataHolder.getProperty(BooleanProperty.class, "Boolean").get().getValue().get().getClass().isAssignableFrom(Boolean.class)
@@ -56,9 +56,9 @@ public class DataManagerTest extends TestCase {
     public void testByteProperty() {
 
         DataHolder dataHolder = new DataHolder();
-        dataHolder.store(new ByteProperty<String>("Byte", (byte) 127));
+        dataHolder.store(new ByteProperty<>("Byte", (byte) 127));
 
-        Assert.assertEquals(
+        assertEquals(
                 "Default Property (Byte) didn't store correctly.",
                 true,
                 dataHolder.getProperty(ByteProperty.class, "Byte").get().getValue().get().getClass().isAssignableFrom(Byte.class)
@@ -69,9 +69,9 @@ public class DataManagerTest extends TestCase {
     public void testCharProperty() {
 
         DataHolder dataHolder = new DataHolder();
-        dataHolder.store(new CharProperty<String>("Char", 'A'));
+        dataHolder.store(new CharProperty<>("Char", 'A'));
 
-        Assert.assertEquals(
+        assertEquals(
                 "Default Property (Char) didn't store correctly.",
                 true,
                 dataHolder.getProperty(CharProperty.class, "Char").get().getValue().get().getClass().isAssignableFrom(Character.class)
@@ -82,9 +82,9 @@ public class DataManagerTest extends TestCase {
     public void testDoubleProperty() {
 
         DataHolder dataHolder = new DataHolder();
-        dataHolder.store(new DoubleProperty<String>("Double", Double.MAX_VALUE));
+        dataHolder.store(new DoubleProperty<>("Double", Double.MAX_VALUE));
 
-        Assert.assertEquals(
+        assertEquals(
                 "Default Property (Double) didn't store correctly.",
                 true,
                 dataHolder.getProperty(DoubleProperty.class, "Double").get().getValue().get().getClass().isAssignableFrom(Double.class)
@@ -95,9 +95,9 @@ public class DataManagerTest extends TestCase {
     public void testFloatProperty() {
 
         DataHolder dataHolder = new DataHolder();
-        dataHolder.store(new FloatProperty<String>("Float", Float.MAX_VALUE));
+        dataHolder.store(new FloatProperty<>("Float", Float.MAX_VALUE));
 
-        Assert.assertEquals(
+        assertEquals(
                 "Default Property (Float) didn't store correctly.",
                 true,
                 dataHolder.getProperty(FloatProperty.class, "Float").get().getValue().get().getClass().isAssignableFrom(Float.class)
@@ -108,9 +108,9 @@ public class DataManagerTest extends TestCase {
     public void testIntegerProperty() {
 
         DataHolder dataHolder = new DataHolder();
-        dataHolder.store(new IntegerProperty<String>("Integer", Integer.MAX_VALUE));
+        dataHolder.store(new IntegerProperty<>("Integer", Integer.MAX_VALUE));
 
-        Assert.assertEquals(
+        assertEquals(
                 "Default Property (Integer) didn't store correctly.",
                 true,
                 dataHolder.getProperty(IntegerProperty.class, "Integer").get().getValue().get().getClass().isAssignableFrom(Integer.class)
@@ -121,9 +121,9 @@ public class DataManagerTest extends TestCase {
     public void testLongProperty() {
 
         DataHolder dataHolder = new DataHolder();
-        dataHolder.store(new LongProperty<String>("Long", Long.MAX_VALUE));
+        dataHolder.store(new LongProperty<>("Long", Long.MAX_VALUE));
 
-        Assert.assertEquals(
+        assertEquals(
                 "Default Property (Long) didn't store correctly.",
                 true,
                 dataHolder.getProperty(LongProperty.class, "Long").get().getValue().get().getClass().isAssignableFrom(Long.class)
@@ -134,9 +134,9 @@ public class DataManagerTest extends TestCase {
     public void testShortProperty() {
 
         DataHolder dataHolder = new DataHolder();
-        dataHolder.store(new ShortProperty<String>("Short", Short.MAX_VALUE));
+        dataHolder.store(new ShortProperty<>("Short", Short.MAX_VALUE));
 
-        Assert.assertEquals(
+        assertEquals(
                 "Default Property (Short) didn't store correctly.",
                 true,
                 dataHolder.getProperty(ShortProperty.class, "Short").get().getValue().get().getClass().isAssignableFrom(Short.class)
@@ -147,9 +147,9 @@ public class DataManagerTest extends TestCase {
     public void testStringProperty() {
 
         DataHolder dataHolder = new DataHolder();
-        dataHolder.store(new StringProperty<String>("String", "Value"));
+        dataHolder.store(new StringProperty<>("String", "Value"));
 
-        Assert.assertEquals(
+        assertEquals(
                 "Default Property (String) didn't store correctly.",
                 true,
                 dataHolder.getProperty(StringProperty.class, "String").get().getValue().get().getClass().isAssignableFrom(String.class)
@@ -160,9 +160,9 @@ public class DataManagerTest extends TestCase {
     public void testMapProperty() {
 
         DataHolder dataHolder = new DataHolder();
-        dataHolder.store(new MapProperty<String>("Map", new HashMap()));
+        dataHolder.store(new MapProperty<>("Map", new HashMap()));
 
-        Assert.assertEquals(
+        assertEquals(
                 "Default Property (Map) didn't store correctly.",
                 true,
                 dataHolder.getProperty(MapProperty.class, "Map").get().getValue().get().getClass().isAssignableFrom(HashMap.class)
@@ -173,9 +173,9 @@ public class DataManagerTest extends TestCase {
     public void testListProperty() {
 
         DataHolder dataHolder = new DataHolder();
-        dataHolder.store(new ListProperty<String>("List", new ArrayList()));
+        dataHolder.store(new ListProperty<>("List", new ArrayList()));
 
-        Assert.assertEquals(
+        assertEquals(
                 "Default Property (List) didn't store correctly.",
                 true,
                 dataHolder.getProperty(ListProperty.class, "List").get().getValue().get().getClass().isAssignableFrom(ArrayList.class)
@@ -186,15 +186,22 @@ public class DataManagerTest extends TestCase {
     public void testPropertyUpdateMethod() {
 
         DataHolder dataHolder = new DataHolder();
-        dataHolder.store(new IntegerProperty<String>("Integer", 42));
+        dataHolder.store(new IntegerProperty<>("Integer", 42));
 
-        Assert.assertEquals(
-                "Moaip",
-                true,
-                dataHolder.getProperty(IntegerProperty.class, "Integer").get().update(43).getClass().isAssignableFrom(IntegerProperty.class)
+        assertEquals(
+                "Property update method doesn't work.",
+                50,
+                dataHolder.getProperty(IntegerProperty.class, "Integer").get().update(50).getValue().get()
         );
 
-    }
 
+        assertEquals(
+                "DataHolder update method doesn't work.",
+                true,
+                dataHolder.updateProperty(IntegerProperty.class, "Integer", 100) && dataHolder.getProperty(IntegerProperty.class, "Integer").get().getValue().get() == 100
+        );
+
+
+    }
 
 }

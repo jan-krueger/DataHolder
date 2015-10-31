@@ -57,13 +57,9 @@ public class LongProperty<K> implements Property<K, Long> {
     }
 
     @Override
-    public Property<K, Long> update(Object value) {
+    public Property<K, Long> update(Long value) {
 
-        if(!(value instanceof Long)) {
-            throw new IllegalArgumentException("The value must be a Long.");
-        }
-
-        this.value = Optional.of((Long) value);
+        this.value = Optional.of(value);
 
         return this;
 

@@ -50,6 +50,6 @@ public interface Property<K, V> {
      * @param value
      * @return
      */
-    Property<K, V> update(Object value);
+    Property<K, V> update(V value);
 
 }

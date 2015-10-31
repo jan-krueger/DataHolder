@@ -29,11 +29,7 @@ public class ExampleSerializableProperty<S, I, S1> implements PropertySerializab
     }
 
     @Override
-    public Property<String, Integer> update(Object value) {
-
-        if(!(value instanceof Integer)) {
-            throw new IllegalArgumentException("The value must be a Integer.");
-        }
+    public Property<String, Integer> update(Integer value) {
 
         this.value = Optional.of((Integer) value);
 

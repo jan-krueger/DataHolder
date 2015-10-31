@@ -70,6 +70,27 @@ public class DataHolder implements DataCarrier {
     }
 
     /**
+     * Updates the value in a property.
+     * @param propertyClass The property class.
+     * @param key The related key.
+     * @param value The value to set.
+     * @param <K>
+     * @param <V>
+     * @param <T>
+     * @return
+     */
+    @Override
+    public <K, V, T extends Property<K, V>> boolean updateProperty(Class<T> propertyClass, K key, V value) {
+
+        if (!(this.contains(propertyClass, key))) {
+            return false;
+        }
+
+        this.getProperty(propertyClass, key).get().update(value);
+        return true;
+    }
+
+    /**
      * Returns all stored Properties for this DataHolder.
      * @return
      */

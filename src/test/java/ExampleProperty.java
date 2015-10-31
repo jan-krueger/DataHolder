@@ -18,7 +18,7 @@ public class ExampleProperty implements Property<String, String> {
     }
 
     @Override
-    public Property<String, String> update(Object value) {
+    public Property<String, String> update(String value) {
 
         return this;
 

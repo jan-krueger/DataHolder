@@ -72,13 +72,25 @@ public interface DataCarrier {
     <T extends Property<?, ?>> boolean contains(Class<T> propertyClass, Object key);
 
     /**
-     * Delets a Property that is related with a key.
+     * Deletes a Property that is related with a key.
      * @param propertyClass The Property class.
      * @param key The related key.
      * @param <T> generic
      * @return returns the deleted Property object if the DataHolder contains the given pair of Property class and key otherwise it returns null.
      */
     <T extends Property<?, ?>> Optional<T> deleteProperty(Class<T> propertyClass, Object key);
+
+    /**
+     * Updates the value of a property.
+     * @param propertyClass The property class.
+     * @param key The related key.
+     * @param value The value to set.
+     * @param <K>
+     * @param <V>
+     * @param <T>
+     * @return boolean true if it was successfully, otherwise false
+     */
+    <K, V, T extends Property<K, V>> boolean updateProperty(Class<T> propertyClass, K key, V value);
 
     /**
      * Returns the size.

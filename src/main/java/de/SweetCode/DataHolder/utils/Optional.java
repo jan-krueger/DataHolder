@@ -39,6 +39,10 @@ public class Optional<T> {
         this.value = value;
     }
 
+    /**
+     * If a value is present in this Optional, returns the value, otherwise throws NoSuchElementException.
+     * @return T
+     */
     public T get() {
 
         if(!(this.isPresent())) {
@@ -49,17 +53,33 @@ public class Optional<T> {
 
     }
 
+    /**
+     * Return true if there is a value present, otherwise false.
+     * @return boolean
+     */
     public boolean isPresent() {
         return (!(this.value == null));
     }
 
+    /**
+     * Return the value if present, otherwise return other.
+     * @param other
+     * @return T
+     */
     public T orElse(T other) {
 
         return (this.isPresent() ? this.value : other);
 
     }
 
-    public T orElseThrow(Throwable throwable) throws Throwable {
+    /**
+     * Return the contained value, if present, otherwise throw an exception to be created by the provided supplier.
+     * @param throwable
+     * @param <X>
+     * @return T
+     * @throws X
+     */
+    public <X extends Throwable> T orElseThrow(X throwable) throws X {
 
         if(!(this.isPresent())) {
             throw throwable;
@@ -69,14 +89,31 @@ public class Optional<T> {
 
     }
 
+    /**
+     * Returns an empty Optional instance.
+     * @param <T>
+     * @return T
+     */
     public static <T> Optional<T> empty() {
         return new Optional<T>(null);
     }
 
+    /**
+     * Returns an Optional with the specified present non-null value.
+     * @param value
+     * @param <T>
+     * @return T
+     */
     public static <T> Optional<T> of(T value) {
         return new Optional<T>(value);
     }
 
+    /**
+     * Returns an Optional describing the specified value, if non-null, otherwise returns an empty Optional.
+     * @param value
+     * @param <T>
+     * @return T
+     */
     public static <T> Optional<T> ofNullable(T value) {
 
         if(value == null) {

@@ -57,13 +57,9 @@ public class FloatProperty<K> implements Property<K, Float> {
     }
 
     @Override
-    public Property<K, Float> update(Object value) {
+    public Property<K, Float> update(Float value) {
 
-        if(!(value instanceof Float)) {
-            throw new IllegalArgumentException("The value must be a Float.");
-        }
-
-        this.value = Optional.of((Float) value);
+        this.value = Optional.of(value);
 
         return this;
 
