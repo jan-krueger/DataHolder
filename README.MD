@@ -183,6 +183,9 @@ public class ExampleSerializableProperty implements PropertySerializable<String,
         this.value = Optional.of(value);
 
         return this;
+        
+        // Well, instead you also can return a new instance.
+        return new ExampleProperty(this.key, this.value.isPresent() ? this.value.get() : null);
     }
 
     @Override
